@@ -1,0 +1,95 @@
+$window_bg1: #515556;
+$window_bg_active: #4674B2;
+$window_border_color: #9E9FA1;
+$window_padding_offset: 15px;
+
+$window_footer_height: 16px;
+$window_header_height: 32px;
+
+.modal-window{
+  position: absolute;
+  border: 1px solid $window_border_color;
+  background: white;
+  box-shadow: 1px 5px 20px 3px rgba(0,0,0,0.53);
+  text-align: left;
+
+  .header{
+    padding: $window_padding_offset;
+    background: $window_bg1;
+    height: $window_header_height;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    &:active{
+      cursor: grabbing;
+    }
+    .actions{
+      position: absolute;
+      right: $window_padding_offset;
+      top: $window_padding_offset;
+      .btn-close{
+        padding: 3px;
+        font-size: 16px;
+        background: none;
+        border: none;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .modal-content{
+    position: absolute;
+    top: $window_header_height + ($window_padding_offset * 2);
+    bottom: $window_footer_height + ($window_padding_offset * 2);;
+    left: 0;
+    right: 0;
+    color: black;
+    padding: $window_padding_offset;
+    overflow-y: scroll;
+  }
+
+  .footer{
+    background: $window_bg1;
+    position: absolute;
+    height: $window_footer_height + $window_padding_offset * 2;
+    bottom: 0;
+    width: 100%;
+    .resize-control{
+      position: absolute;
+      right: $window_padding_offset;
+      bottom: $window_padding_offset;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 $window_footer_height $window_footer_height;
+      border-color: transparent transparent white transparent;
+      cursor: se-resize;
+    }
+  }
+
+  // Active
+  &.active{
+    .header{
+      background: $window_bg_active;
+    }
+    .footer{
+      background: $window_bg_active;
+    }
+  }
+
+  // Drag
+  &.drag{
+    border: 1px dotted black;
+  }
+}
+
+.no-selection {
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}

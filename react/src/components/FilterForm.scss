@@ -1,0 +1,47 @@
+.filter-form{
+  .fields-row{
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    > label{
+      font-weight: bold;
+      display: inline-block;
+      min-width: 240px;
+    }
+    .items{
+      > * {
+        display: inline-block;
+        margin-left: 10px;
+        &:first-child{
+          margin-left: 0;
+        }
+      }
+    }
+    .filter-list{
+      .filter-list-items{
+        display: inline-block;
+        > div {
+          margin-bottom: 5px;
+          > div{
+            display: inline-block;
+          }
+        }
+      }
+      button{
+        display: inline-block;
+        padding: 4px 10px;
+      }
+    }
+  }
+  .radio-group{
+    .form-check{
+      display: inline-block;
+      margin-left: 10px;
+      &:first-child{
+        margin-left: 0;
+      }
+    }
+  }
+
+}

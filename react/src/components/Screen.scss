@@ -1,0 +1,50 @@
+body {
+  background: linear-gradient(to left,#000428 ,#004e92);
+  color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  font-family: arial, serif;
+  font-size: 14px;
+}
+
+h1 {
+  color: #f8f8f8;
+  font-family: helvetica, serif;
+}
+
+.content{
+  text-align: center;
+}
+
+button{
+  font-size: 14px;
+  border-radius: 5px;
+  background: white;
+  padding: 5px 30px;
+  cursor: pointer;
+}
+input[type="text"]{
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 5px 5px;
+}
+select{
+  font-size: 14px;
+  border-radius: 2px;
+  box-shadow: inset -1px -1px 1px 1px rgba(0,0,0,0.2);
+  display: inline-block;
+  border: 1px outset lightgray;
+  padding: 5px 10px;
+  background: white;
+}
+.content{
+  .buttons{
+    > * {
+      display: inline-block;
+      margin-left: 10px;
+      &:first-child{
+        margin-left: 0;
+      }
+    }
+  }
+}

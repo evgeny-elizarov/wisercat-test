@@ -1,0 +1,54 @@
+	const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const outputPath = path.join(__dirname, "dist");
+const port = process.env.PORT || 3000;
+
+module.exports = {
+	context: __dirname,
+	entry: './src/app.jsx',
+	output: {
+		path: path.join(__dirname, 'dist'),
+		filename: 'bundle.js',
+	},
+	resolve: {
+		modules: ['node_modules', './src'],
+		extensions: ['.js', '.jsx'],
+	},
+	module: {
+		rules: [
+            {
+                test: /\.scss$/,
+                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader!sass-loader'
+                })),
+            },
+			// {
+			// 	test: /\.scss$/,
+			// 	use: ExtractTextPlugin.extract({
+			// 		use: 'css-loader!sass-loader',
+			// 	}),
+			// },
+			{
+				test: /\.css$/,
+				use: ExtractTextPlugin.extract({
+					use: 'css-loader'
+				}),
+			},
+			{
+				test: /\.(js|jsx)$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/
+			}
+		]
+	},
+	plugins: [
+		new ExtractTextPlugin('bundle.css'),
+	],
+	devServer: {
+		port,
+		historyApiFallback: true,
+		publicPath: '/dist/',
+	}
+}

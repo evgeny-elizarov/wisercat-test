@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  react:
+    image: "node:8"
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+    - ./react:/home/node/app
+    environment:
+    - NODE_ENV=development
+    ports:
+    - "${REACT_EXAMPLE_PORT}:3000"
+    expose:
+    - "3000"
+    command: >
+      /bin/bash -c "yarn install && yarn dev"
+
+  api:
+    image: "node:8"
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+    - ./rest-api:/home/node/app
+    environment:
+    - NODE_ENV=development
+    ports:
+    - "${API_EXAMPLE_PORT}:3001"
+    expose:
+    - "3001"
+    command: >
+      /bin/bash -c "yarn install && yarn start"
+    depends_on:
+      - mongodb
