@@ -17,4 +17,5 @@ cp .env.dist .env
 ```
 docker-compose up
 ```
+3. Open in browser http://localhost:3000/ 
 

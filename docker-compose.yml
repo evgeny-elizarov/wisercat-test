@@ -31,5 +31,3 @@ services:
     - "3001"
     command: >
       /bin/bash -c "yarn install && yarn start"
-    depends_on:
-      - mongodb
